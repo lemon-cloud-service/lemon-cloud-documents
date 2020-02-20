@@ -1,4 +1,4 @@
-## 注册中心协议
+## 0. 注册中心协议
 
 ##### A. 服务实例 [service_instance]
 
@@ -38,9 +38,36 @@ cn.lemonit.cloud.system_settings_value.lemon_cloud_user.settings_group01.setting
 
 
 
+## 2.  
+
+
+
 每个服务对外暴露三种接口：
 
 1. 管理接口：/adm
 2. 服务间接口：/svc
 3. 面向用户接口：/usr
+
+
+
+单点docker启动ETCD命令
+
+```shell
+docker run \
+  -d \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  --name etcd \
+  quay.io/coreos/etcd \
+  /usr/local/bin/etcd \
+  --name s1 \
+  --data-dir /etcd-data \
+  --listen-client-urls http://0.0.0.0:2379 \
+  --advertise-client-urls http://0.0.0.0:2379 \
+  --listen-peer-urls http://0.0.0.0:2380 \
+  --initial-advertise-peer-urls http://0.0.0.0:2380 \
+  --initial-cluster s1=http://0.0.0.0:2380 \
+  --initial-cluster-token tkn \
+  --initial-cluster-state new
+```
 
