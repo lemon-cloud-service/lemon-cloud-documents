@@ -24,41 +24,52 @@
 
 ## Z. 配置文件规则定义
 
-### 1. management_modules.yml配置规则
-
- 
+### 1. lc_service.json配置规则
 
 每个业务静态数据资源文件夹中必须存在此文件，通过此文件进行对业务UI模块进行相关配置，格式如下：
 
-```yaml
-service:
-	service_key:
-	service_icon_url: /icon.png // 此处必须以/开头，表明系统从当前服务资源文件夹中读取
-	management_module_list:
-	- module_key:
-    module_name:
-    module_introduce:
-    module_icon_url:
-    index_url:
+```json
+{
+  "service": {
+    "service_key": "lemon_cloud_user",
+    "service_icon_url": "xxxxxx",
+    "management_module_list": [
+      {
+        "module_key": "user_group_manage",
+        "module_name": "用户组管理",
+        "module_introduce": "所有用户组的管理",
+        "module_icon_url": "yyyyyy",
+        "index_url": "zzzzzzz"
+      }
+    ]
+  }
+}
 ```
 
 
 
-### 2. override.yml配置规则
+### 2. lc_override.json配置规则
 
 对于需要覆盖重写的模块信息进行填写即可，没有配置则按照约定从工作区读取，格式如下：
 
-```yaml
-services:
-	$service_key:
-		service_key:
-		service_icon_url: xxx
-		management_module_list:
-    - module_key:
-      module_name:
-      module_introduce:
-      module_icon_url:
-      index_url:
+```json
+{
+  "services": [
+    {
+      "service_key": "lemon_cloud_user",
+      "service_icon_url": "xxxxxx",
+      "management_module_list": [
+        {
+          "module_key": "user_group_manage",
+          "module_name": "用户组管理",
+          "module_introduce": "所有用户组的管理",
+          "module_icon_url": "yyyyyy",
+          "index_url": "zzzzzzz"
+        }
+      ]
+    }
+  ]
+}
 ```
 
 

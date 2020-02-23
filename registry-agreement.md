@@ -21,7 +21,7 @@ cn.lemonit.cloud.service_base_info.lemon_cloud_user
 每个服务需要到指定空间下存储系统设置的定义，说明需要哪些系统设置项目，一以及系统设置项目的类型，具体的格式为：**namespace**.system_settings_define.**service_key**，例：
 
 ````
-cn.lemonit.cloud.system_settings_define.lemon_cloud_user
+/system_settings_valuue/cn.lemonit.cloud/lemon_cloud_user
 ````
 
 ##### D. 系统设置实际存储值 [system_settings_value]
@@ -29,7 +29,7 @@ cn.lemonit.cloud.system_settings_define.lemon_cloud_user
 当系统设置实际被设置值的时候，实际是将设置的值存储在了该位置（不同系统设置组做了区分）格式如下：**namespace**.system_settings_value.**service_key.settings_group_key.settings_item_key**，例：
 
 ```
-cn.lemonit.cloud.system_settings_value.lemon_cloud_user.settings_group01.settings_item01
+/system_settings_value/cn.lemonit.cloud/lemon_cloud_user
 ```
 
 ##### E. 服务私有数据沙盒 [data_sandbox]
